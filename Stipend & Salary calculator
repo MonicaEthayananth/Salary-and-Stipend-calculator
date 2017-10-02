@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Salary Calculator</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div style="float: left;">
+		<table class="table">
+			<tbody>
+				<tr>
+					<td>Annual Rate $</td>
+					<td><input min="0.00" name="AnnualRate" step="1000" type="number" value="0"></td>
+					<td>Allocation $</td>
+					<td><input class="results" disabled="disabled" name="Allocation" readonly="readonly" type="number"></td>
+				</tr>
+				<tr>
+					<td>Basis Periods</td>
+					<td><select name="BasisPeriods">
+						<option>
+							12
+						</option>
+						<option>
+							9
+						</option>
+						<option>
+							3
+						</option>
+					</select></td>
+					<td>Monthly Salary $</td>
+					<td><input class="results" disabled="disabled" name="MonthlySalary" readonly="readonly" type="number"></td>
+				</tr>
+				<tr>
+					<td>Hours Per Week</td>
+					<td><input min="0" name="HoursPerWeek" type="number" value="0"></td>
+					<td>Pct Time</td>
+					<td><input class="results" disabled="disabled" max="100.00" min="0.00" name="PctTime" readonly="readonly" type="number"> %</td>
+				</tr>
+				<tr>
+					<td>Begin Date</td>
+					<td><input name="BeginDate" placeholder="mm/dd/yyyy" type="date"></td>
+					<td>FTE (weekly)</td>
+					<td><input class="results" disabled="disabled" name="FTE" readonly="readonly" type="number"></td>
+				</tr>
+				<tr>
+					<td>End Date</td>
+					<td><input name="EndDate" placeholder="mm/dd/yyyy" type="date"></td>
+					<td>FTE (yearly)</td>
+					<td><input class="results" disabled="disabled" name="FTEyearly" readonly="readonly" type="number"></td>
+				</tr>
+				<tr>
+					<td> % of Annual Rate</td>
+					<td><input min="0" name="CentAnnualRate"  type="number" value="0">%</td>
+					<td># of Workdays</td>
+					<td><input class="results" disabled="disabled" name="NumberOfWorkDays" readonly="readonly" type="number"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td>Annual rate %</td>
+					<td><input class="results" disabled="disabled" name="AnnualRateCent" readonly="readonly" type="number"></td>
+				</tr>
+			</tbody>	
+		</table>
+		<div align="center">
+			<button onclick="getSalRates()" type="button">Get Rates</button> <button onclick="resetAllFields()" type="button">Reset</button>
+		</div>
+	</div>
+	<form id="form" name="form">
+	<div style="float: left;clear: both;margin: 25px 0px;">
+		<table class="table">
+			<tbody>
+				<tr>
+					<td style="text-align: left;">Stipend Amount</td>
+					<td>$<input id="input.StipendAmount" min="0.00" type="number" value="0.00"></td>
+					<td style="text-align: left;">Annual Rate</td>
+					<td>$<input id="input.AnnualAmount2" min="0.00" type="number" value="0.00"></td>
+
+				</tr>
+				<tr>
+					<td>Semester</td>
+					<td>
+						<select id="input.SemesterTerm">
+							<option value="1">
+								Fall
+							</option>
+							<option value="3">
+								Spring
+							</option>
+						</select>
+					</td>
+					<td>Year</td>
+					<td><select id="input.SemesterYear">
+							<option value="2">
+								2017
+							</option>
+							<option value="4">
+								2018
+							</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td><strong>Monthly Stipend Allocation</strong></td>
+				</tr>
+				<tr> 
+					<td><strong><input class="results" disabled="disabled" id="output.TotalAmountM" type="text"></strong></td>
+					<td><strong><input class="results" disabled="disabled" id="output.TotalAmountM1" type="text"></strong></td>
+					<td><strong><input class="results" disabled="disabled" id="output.TotalAmountM2" type="text"></strong></td>
+					<td><strong><input class="results" disabled="disabled"  id="output.TotalAmountM3" type="text"></strong></td>
+					<td><strong><input class="results" disabled="disabled" id="output.TotalAmountM4" type="text"></strong></td>
+				</tr>
+				<tr>
+					<td><strong>$<input class="results" disabled="disabled" id="output.TotalAmount" type="number"></strong></td>
+					<td><strong>$<input class="results" disabled="disabled" id="output.TotalAmount1" type="number"></strong></td>
+					<td><strong>$<input class="results" disabled="disabled" id="output.TotalAmount2" type="number"></strong></td>
+					<td><strong>$<input class="results" disabled="disabled" id="output.TotalAmount3" type="number"></strong></td>
+					<td><strong>$<input class="results" disabled="disabled" id="output.TotalAmount4" type="number"></strong></td>
+				</tr>
+				 <tr>
+					<td><strong>Account Distribution %</strong></td>
+
+					<td><strong><input class="results" disabled="disabled" id="output.TotalAmount5"  type="number"></strong></td>
+
+
+			    </tr>
+			</tbody>
+		</table>
+		<div align="center">
+			<button onclick="getRates()" id="btn.submit" type="button">Get Rates</button> <button id="btn.reset" type="button">Reset</button>
+		</div>
+	</div>
+</form>
+	<div style="float: left; clear: both;">
+		<ul>
+			<li>Fill out the left side of the table with the appropriate values.</li>
+			<li>Note: The date fields are required.</li>
+			<li>Click the Get Rates button to populate the right side of the table.</li>
+			<li>Click the Reset button to reset the calculator to default values.</li>
+			<li>Note: If you are using Internet Explorer, click the Allow Blocked Content button to allow the script to execute.</li>
+		</ul>
+	</div>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/stipend.js"></script>
+</body>
+</html>
